@@ -1,8 +1,9 @@
 import random
 
-from cards.deck import Deck
+from cards.deck import *
+from cards.card import *
 from game_settings.settings import win_condition
-from players.player import Player
+from players.player import Player, first_turn
 
 
 def gameplay_loop(players):
@@ -12,6 +13,7 @@ def gameplay_loop(players):
     # Reorganize the order of the players
     players = players[first_player_index:] + players[:first_player_index]
 
+    game_deck = generate_deck()
     # Start the game on turn 1
     turn = 1
 
@@ -20,6 +22,11 @@ def gameplay_loop(players):
         for player in players:
             print("Turn:", turn)
             print(player.name)
+
+            if turn == 1:
+              print("It is the first turn!")
+              first_turn(player)
+
             player.res6 += 5
 
             if player.res6 >= 20:
@@ -27,7 +34,7 @@ def gameplay_loop(players):
                 return
 
             # Check if the game is over
-            if win_condition():
+            if win_condition(player):
               print(player.name + " Wins!")
               break
             else:

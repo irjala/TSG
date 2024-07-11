@@ -1,5 +1,8 @@
 import random
 
+
+''' Card class '''
+
 class Card:
   def __init__(self, name, cost=0, val1=0, val2=0, val3=0, special=None):
     if name == None:
@@ -12,6 +15,8 @@ class Card:
     self.special = special
 
 
+''' Card specialty functions '''
+
 def card_func_firstcard():
   print("You did the function!")
 
@@ -20,6 +25,8 @@ def card_func_secondcard(players):
   robbed.res6 -= 3
   print(robbed.name + " got robbed for 3!")
 
+
+''' Game call functions '''
 
 def draw_card(player):
   drawn_card = random.choice(game_deck.cards)
