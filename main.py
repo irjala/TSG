@@ -3,7 +3,8 @@ import random
 from cards.deck import *
 from cards.card import *
 from game_settings.settings import win_condition
-from players.player import Player, first_turn
+from players.player import *
+from game_instance import *
 
 
 def gameplay_loop(players):
@@ -13,7 +14,9 @@ def gameplay_loop(players):
     # Reorganize the order of the players
     players = players[first_player_index:] + players[:first_player_index]
 
-    game_deck = generate_deck()
+    main_deck = create_deck_from_csv('cards/main_cards.csv')
+    for i in main_deck:
+      print(f'Name: {i.name}, Cost: {i.cost}, Val1: {i.val1}, Val2: {i.val2}, Val3: {i.val3}, Special: {i.special}')
     # Start the game on turn 1
     turn = 1
 
@@ -42,3 +45,6 @@ def gameplay_loop(players):
 
         # Increment the turn
         turn += 1
+
+player_list = [Player(), Player()]
+gameplay_loop(player_list)

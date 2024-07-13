@@ -1,6 +1,5 @@
 import random
 
-
 ''' Card class '''
 
 class Card:
@@ -28,17 +27,18 @@ def card_func_secondcard(players):
 
 ''' Game call functions '''
 
-def draw_card(player):
+def draw_card(deck_name):
   drawn_card = random.choice(game_deck.cards)
   for cards in player.cards:
     if cards.special != None:
       cards.special()
   player.cards.remove(card)
   return card
-
+'''
 def remove_card(player, card):
   player.cards.remove(card)
   if player.res6 >= 30:
     return True
   else:
     return False
+'''
