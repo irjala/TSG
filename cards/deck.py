@@ -36,12 +36,6 @@ def create_deck_from_csv(deck_name):
     
     return main_deck
 
-def randomize_order(deck_list):
-    randomized_list = deck_list[:]
-    random.shuffle(randomized_list)
-    return randomized_list
-
-
 def draw_card(deck_name):
     cards_list = deck_name
     if cards_list:

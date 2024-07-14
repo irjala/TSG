@@ -4,18 +4,29 @@ from cards.deck import *
 from cards.card import *
 from game_settings.settings import win_condition
 from players.player import *
-from game_instance import *
+import game_instance
 
 
-def gameplay_loop(players):
-    # Choose a random player to be first
-    first_player_index = random.randint(0, len(players) - 1)
+def start_game(players):
+    
+    player_names = ['Simon', 'John', 'Franz']
+    
+    # Init the game
+    current_game = game_instance.Game()
 
-    # Reorganize the order of the players
-    players = players[first_player_index:] + players[:first_player_index]
+    for i in players:
+      current_game.add_player(i)
 
-    main_deck = create_deck_from_csv('cards')
-    for i in main_deck:
+    current_game.shuffle_player_order()
+
+    check_player = current_game.player_order
+    print(check_player)
+    
+    current_game.shuffle_deck('main_deck')
+    current_game.shuffle_deck('gobbs_deck')
+    current_game.shuffle_deck('lobster_deck')
+    
+    for i in current_game.main_deck:
       print(f'Name: {i.name}, Cost: {i.cost}, Val1: {i.val1}, Val2: {i.val2}, Val3: {i.val3}, Special: {i.special}')
     # Start the game on turn 1
     turn = 1
@@ -47,4 +58,4 @@ def gameplay_loop(players):
         turn += 1
 
 player_list = [Player(), Player()]
-gameplay_loop(player_list)
+start_game(player_list)
