@@ -14,7 +14,7 @@ def gameplay_loop(players):
     # Reorganize the order of the players
     players = players[first_player_index:] + players[:first_player_index]
 
-    main_deck = create_deck_from_csv('cards/main_cards.csv')
+    main_deck = create_deck_from_csv('cards')
     for i in main_deck:
       print(f'Name: {i.name}, Cost: {i.cost}, Val1: {i.val1}, Val2: {i.val2}, Val3: {i.val3}, Special: {i.special}')
     # Start the game on turn 1
@@ -28,7 +28,7 @@ def gameplay_loop(players):
 
             if turn == 1:
               print("It is the first turn!")
-              first_turn(player)
+              #first_turn(player)
 
             player.res6 += 5
 

@@ -3,6 +3,9 @@ import random
 import string
 import os
 
+
+''' Temporary CSV generator for testing purposes '''
+
 def generate_random_card_name():
     return ''.join(random.choices(string.ascii_letters, k=8))
 
@@ -10,10 +13,10 @@ def generate_random_cost():
     return random.randint(1, 100)
 
 def generate_random_resource():
-    return random.choice(['wood', 'stone', 'gold', 'silver', 'iron'])
+    return random.randint(1, 100)
 
 def generate_random_space():
-    return random.choice(['land', 'sea', 'air', 'space'])
+    return random.randint(1, 100)
 
 def generate_random_special():
     return random.choice(['none', 'fire', 'water', 'earth', 'wind'])
