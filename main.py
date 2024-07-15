@@ -9,13 +9,13 @@ import game_instance
 
 def start_game(players):
     
-    player_names = ['Simon', 'John', 'Franz']
-    
     # Init the game
     current_game = game_instance.Game()
 
     for i in players:
-      current_game.add_player(i)
+        if not isinstance(i, Player):
+            raise TypeError("All elements in players must be instances of Player class")
+        current_game.add_player(i)
 
     current_game.shuffle_player_order()
 

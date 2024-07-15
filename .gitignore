@@ -31,3 +31,5 @@ coverage.xml
 
 # Translations
 *.mo
+
+tests/
