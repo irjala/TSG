@@ -1,5 +1,12 @@
 ''' Game general functions '''
 
+settings_terrain = {
+    'desert': 30,
+    'forest': 30,
+    'swamp': 20,
+    'field': 20,
+}
+
 def win_condition(player):
 
   has_won = False

@@ -3,6 +3,7 @@ import random
 from cards.deck import *
 from cards.card import *
 from game_settings.settings import win_condition
+from maps import default_map
 from players.player import *
 import game_instance
 
@@ -56,6 +57,11 @@ def start_game(players):
 
         # Increment the turn
         turn += 1
+
+
+test_map = default_map.IslandMap()
+
+test_map.display_map
 
 player_list = [Player(), Player()]
 start_game(player_list)
